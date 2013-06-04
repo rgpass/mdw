@@ -1,4 +1,4 @@
-									Basic Terminal codes...
+						Basic Terminal codes...
 Change directory to mdw folder:
 $ cd mdw
 
@@ -11,15 +11,32 @@ $ cd ~/mdw
 Lists the files/directories in current folder:
 $ ls
 
+Other commands can be found at:
+http://guides.macrumors.com/Terminal
 
-									Rails Terminal codes...
-Create a new project titled mdw:
-$ rails new mdw
+
+						Rails Terminal codes...
+Create a new project titled mdw that doesn't include default testing:
+$ rails new mdw --skip-test-unit
 
 Update gems:
 $ bundle update
 $ bundle install --without production
+	Note: --without production is 'remembered' and will not need to
+				be typed next time.
 
-									Git Terminal codes...
-Initialize a repository:
+
+						Setting up GitHub for a new project...
+1. Initialize a repository:
 $ git init
+
+2. Add the directory to list of files to be updated:
+$ git add .
+
+3. Submit for original commit
+$ git commit -m "Initial commit"
+
+4. Assuming you already have an account, go to GitHub,
+	 click on New repository, follow 2nd set of instructions
+https://github.com
+
