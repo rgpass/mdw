@@ -1,0 +1,25 @@
+									Basic Terminal codes...
+Change directory to mdw folder:
+$ cd mdw
+
+Go up one folder:
+$ cd ..
+
+Finds the mdw folder then changes to that directory:
+$ cd ~/mdw
+
+Lists the files/directories in current folder:
+$ ls
+
+
+									Rails Terminal codes...
+Create a new project titled mdw:
+$ rails new mdw
+
+Update gems:
+$ bundle update
+$ bundle install --without production
+
+									Git Terminal codes...
+Initialize a repository:
+$ git init
