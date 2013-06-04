@@ -1,0 +1,9 @@
+Users:
+id								integer
+name							string
+email							string
+
+Posts:
+id								integer
+content						string
+user_id						integer

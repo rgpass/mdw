@@ -25,6 +25,10 @@ $ bundle install --without production
 	Note: --without production is 'remembered' and will not need to
 				be typed next time.
 
+Start Rails server and view in browser:
+$ rails s
+http://localhost:3000/
+
 
 						Setting up GitHub for a new project...
 1. Initialize a repository:
@@ -40,3 +44,38 @@ $ git commit -m "Initial commit"
 	 click on New repository, follow 2nd set of instructions
 https://github.com
 
+
+						Setting up Heroku for a new project...
+1. Create from command line:
+$ heroku create --stack cedar
+
+2. Push your Git up to Heroku:
+$ git push heroku master
+
+3. Rename the application to something meaningful:
+$ heroku apps:rename my-dysfunctional-workplace
+	Note: Do not rename it on Heroku's site, need to do command line
+
+4. Open to test that it worked:
+$ heroku open
+
+
+						Regular updates to Git and Heroku...
+1. Add files in the directory to what will be pushed:
+$ git add .
+
+2. Push to Git:
+$ git push
+
+3. Push to Heroku:
+$ git push heroku master
+
+4. View Heroku logs to troubleshoot
+$ heroku logs
+
+
+						Rails Terminal generation codes...
+Generate a controller for Static Pages for a Home
+and FAQ page with no default test framework:
+$ rails generate controller StaticPages home faq --no-test-framework
+	Note: To undo this, replace generate with destroy

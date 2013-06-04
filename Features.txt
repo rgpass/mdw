@@ -1,0 +1,20 @@
+This file lists out the features that we need to add.
+
+1. Voting function
+Vote if funny/dysfunctional or stupid
+
+2. Post HTML formatting
+The user can edit the HTML formatting in their post.
+More advanced: Format is automatically done.
+
+3. Set up flagging system for inappropriate content
+
+4. Establish certain users as moderators
+
+5. Can comment on people's posts
+
+6. Can view either most popular or most recent posts
+
+7. Translate function
+
+8. Domain-specific email (i.e. gerry@mydysfunctionalworkplace.com)
