@@ -3,6 +3,12 @@ Mdw::Application.routes.draw do
 
   get "static_pages/faq"
 
+
+  # Routes Layout
+  # Page       URI                      Variable title
+  # Home       /static_pages/home       (blank)
+  # FAQ        /static_pages/faq        FAQ
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

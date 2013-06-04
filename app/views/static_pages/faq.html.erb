@@ -1,13 +1,28 @@
-<!-- This page will have FAQ, About, and Contact info -->
-<!-- Questions to answer are: -->
-<!-- What is MDW?, Who's behind MDW?, How do I submit? -->
-<!-- How do I delete posts? How do I report posts? -->
-<!-- How can I contact you? -->
-<!-- Needs to have personality, not sound like a robot -->
-<!-- Can include Privacy Policy here and also include -->
-<!-- the legal stuff as well. Have an expandable list -->
+<!-- Have an expandable list -->
 <!-- so not everything is visible at once or can use -->
 <!-- HTML anchors -->
 
+<!-- This provides the :title to be used by the -->
+<!-- full_title method which can be found in -->
+<!-- app/helpers/application_helper.rb -->
+<!-- This is utilized in app/views/layouts/application.html.erb -->
+<% provide(:title, 'FAQ') %>
 <h1>StaticPages#faq</h1>
 <p>Find me in app/views/static_pages/faq.html.erb</p>
+<p>Frequently Asked Questions:</p>
+<ul> <!-- About -->
+	<li>What is MDW?</li>
+	<li>Who's behind MDW?</li>
+</ul>
+<ul> <!-- Help -->
+	<li>How do I submit a story?</li>
+	<li>How do I delete a story?</li>
+	<li>How do I report a story?</li>
+	<li>How do I contact you?</li>
+</ul>
+<ul> <!-- Privacy Policy -->
+	<li></li>
+</ul>
+<ul> <!-- Legal Stuff -->
+	<li></li>
+</ul>

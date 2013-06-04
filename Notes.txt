@@ -79,3 +79,11 @@ Generate a controller for Static Pages for a Home
 and FAQ page with no default test framework:
 $ rails generate controller StaticPages home faq --no-test-framework
 	Note: To undo this, replace generate with destroy
+
+
+						RSpec, Capybara, and Cucumber...
+Generate a test suite for static pages:
+$ rails generate integration_test static_pages
+
+Run test-suite for entire spec folder:
+$ bundle exec rspec spec/
