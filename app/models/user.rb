@@ -60,6 +60,10 @@ class User < ActiveRecord::Base
   # add_index_to_users_name
   								 uniqueness: { case_sensitive: false }
   # Passwords have to exist and be of significant length
-  validates :password, presence: true, length: { minimum: 6 }
+  # Removing presence: true for :password eliminates
+  # the duplicate errors when signing up, however it puts
+  # the errors in an incorrect order. Need to investigate
+  # this further.
+  validates :password, length: { minimum: 6 }
   validates :password_confirmation, presence: true
 end

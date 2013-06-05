@@ -26,6 +26,8 @@ $ bundle install --without production
 
 Migrate up the database to include new changes/additions to the data model:
 $ bundle exec rake db:migrate
+	Note: After deploying to Heroku, run:
+	$ heroku run rake db:migrate
 
 Reverse a migration:
 $ bundle exec rake db:rollback

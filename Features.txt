@@ -40,3 +40,7 @@ More advanced: Format is automatically done.
 18. Includes Google Analytics
 
 19. Allow for anonymous posting
+
+20. Error messages on sign up screen are in correct order.
+
+21. Users can delete or edit their stories.
