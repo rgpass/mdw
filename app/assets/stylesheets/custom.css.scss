@@ -1,0 +1,134 @@
+/* This file was manually created to include Bootstrap */
+/* and other custom formats */
+
+/* These should go in the Header group but Bootstrap */
+/* requires that these go first. These change the colors */
+/* of the Header bar and drop down menu */
+$navbarBackgroundHighlight: white;
+$navbarBackground: white;
+
+/* This is how you include Bootstrap's CSS */
+@import "bootstrap";
+/* Allows for auto size formatting */
+@import 'bootstrap-responsive';
+
+/* Define colors even if only used once */
+/* This is called a max-in */
+$lightGray: #999;
+$grayMediumLight: #eaeaea;
+
+/* Bootstrap has a list of variables already defined */
+/* which can be found at: */
+/* http://bootstrapdocs.com/v2.0.4/docs/less.html */
+/* $grayLight is one of those colors and is now used */
+/* in the Footer section of this file */
+
+/* universal */
+
+html {
+  overflow-y: scroll;
+}
+
+body {
+  padding-top: 60px;
+}
+
+section {
+  overflow: auto;
+}
+
+textarea {
+  resize: vertical;
+}
+
+.center {
+  text-align: center;
+  h1 {
+    margin-bottom: 10px;
+  }
+}
+
+/* typography */
+
+h1, h2, h3, h4, h5, h6 {
+  line-height: 1;
+}
+
+h1 {
+  font-size: 3em;
+  letter-spacing: -2px;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+h2 {
+  font-size: 1.7em;
+  letter-spacing: -1px;
+  margin-bottom: 30px;
+  text-align: center;
+  font-weight: normal;
+  color: $lightGray;
+}
+
+p {
+  font-size: 1.1em;
+  line-height: 1.7em;
+}
+
+/* header */
+
+/* This will make it so that when the window collapses */
+/* the margin disappears. Can use @media to make the */
+/* site look different depending on the size of the */
+/* device it's being viewed on */
+@media (max-width: 980px) {
+	.navbar {
+	margin: -60px 0 0 0;
+	}
+}
+
+.navbar-inner {
+	@include box-shadow(none !important);
+	border: 0;
+}
+
+#logo {
+  float: left;
+  margin-right: 10px;
+  font-size: 1.7em;
+  color: $grayDark;
+  letter-spacing: -1px;
+  padding-top: 9px;
+  font-weight: bold;
+  line-height: 1;
+  &:hover {
+    color: $grayDark; 
+    text-decoration: none;
+  }
+}
+
+/* footer */
+
+footer {
+  margin-top: 45px;
+  padding-top: 5px;
+  border-top: 1px solid $grayMediumLight;
+  color: $grayLight;
+  a {
+    color: $gray;
+    &:hover { 
+      color: $grayDarker;
+    }
+  }  
+  small { 
+    float: left; 
+  }
+  ul {
+    float: right;
+    list-style: none;
+    li {
+      float: left;
+      margin-left: 10px;
+    }
+  }
+}

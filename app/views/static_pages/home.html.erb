@@ -9,5 +9,17 @@
 <!-- localhost:3000/static_pages/home.html -->
 <!-- However it is changed in config/routes.db -->
 
+<!-- Will have an if statement to only show Hero Unit -->
+<!-- if the user is not signed in -->
+
+<div class="center hero-unit">
+	<h1>My Dysfunctional Workplace</h1>
+	<h2>
+		<%= link_to "Sign up", signup_path %> or <%= link_to "sign in", '#' %> to tell the world your horror story.
+	</h2>
+	<%= link_to "Sign Up!", signup_path, class: "btn btn-large btn-primary" %>
+	<%= link_to "Sign In!", '#', class: "btn btn-large btn-primary" %>
+</div>
+
 <h1>StaticPages#home</h1>
 <p>Find me in app/views/static_pages/home.html.erb</p>

@@ -1,6 +1,10 @@
 source 'https://rubygems.org'
 
 gem 'rails', '3.2.13'
+# Bootstrap provides awesome CSS formats and user interface
+# elements. These can be found in any of the app/views 
+# files where a class is specified
+gem 'bootstrap-sass', '2.1'
 
 # These gems are not used when deployed
 group :development do

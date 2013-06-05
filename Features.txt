@@ -1,7 +1,7 @@
 This file lists out the features that we need to add.
 
 1. Voting function
-Vote if funny/dysfunctional or stupid
+Vote if funny/dysfunctional or stupid. Can have the totals show up on the user's profile.
 
 2. Post HTML formatting
 The user can edit the HTML formatting in their post.
@@ -13,8 +13,14 @@ More advanced: Format is automatically done.
 
 5. Can comment on people's posts
 
-6. Can view either most popular or most recent posts
+6. Can view either most popular or most recent posts or randoms
 
 7. Translate function
 
 8. Domain-specific email (i.e. gerry@mydysfunctionalworkplace.com)
+
+9. Add an icon image and a logo
+
+10. Submissions go through an 'approval' process first
+
+11. Have the logo say "My Dysfunctional Workplace" if the width is sufficient, if not it shrinks it to "MDW"

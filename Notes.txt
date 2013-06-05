@@ -29,6 +29,9 @@ Start Rails server and view in browser:
 $ rails s
 http://localhost:3000/
 
+Interact with Rails application and try interactive Ruby:
+$ rails c
+
 
 						Setting up GitHub for a new project...
 1. Initialize a repository:

@@ -1,13 +1,35 @@
 Mdw::Application.routes.draw do
-  get "static_pages/home"
+# This was automatically generated with the Users controller
+# however it does not meet REST conventions, so will be
+# deleted. See User pages layout below.
+  get "users/new"
 
-  get "static_pages/faq"
+# Static pages
+  root to: 'static_pages#home'
+
+  match '/faq', to: 'static_pages#faq'
+
+# User pages
+  match '/signup', to: 'users#new'
 
 
   # Routes Layout
-  # Page       URI                      Variable title
-  # Home       /static_pages/home       (blank)
-  # FAQ        /static_pages/faq        FAQ
+# Page       URI            Variable title
+# Home       /              (blank)
+# FAQ        /faq           FAQ
+# Sign up    /signup        Sign Up
+# Sign in    /signin        Sign In
+# 
+
+  # User pages layout
+# HTTP request URI            Action  Purpose
+# GET          /users         index   lists all users
+# GET          /users/1       show    show info for user 1
+# GET          /users/new     new     make a new user
+# POST         /users         created create the new user
+# GET          /users/1/edit  edit    edit for user 1
+# PUT          /users/1       update  update the info
+# DELETE       /users/1       destroy delete user 1
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

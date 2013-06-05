@@ -1,0 +1,29 @@
+<header class="navbar navbar-fixed-top">
+	<div class="navbar-inner">
+		<div class="container">
+
+			<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</a>
+
+			<!-- Logo to replace this -->
+			<%= link_to "MDW", root_path, id: "logo" %>
+
+			<div class="nav-collapse collapse">
+				<ul class="nav">
+					<li><%= link_to "Home",  root_path %></li>
+					<li><%= link_to "FAQ", faq_path %></li>
+				</ul>
+				<ul class="nav pull-right">
+					<!-- Will need an if/else for if the user -->
+					<!-- is signed in or not. Assuming not for now -->
+					<li><%= link_to "Sign in", '#' %></li>
+				</ul>
+
+
+			</div>
+		</div>
+	</div>
+</header>
