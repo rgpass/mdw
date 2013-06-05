@@ -7,7 +7,8 @@ gem 'rails', '3.2.13'
 gem 'bootstrap-sass', '2.1'
 # bcrypt is a state-of-the-art hash function which
 # irreversibly encrypts the password to form the
-# password hash.
+# password hash. After $ bundle install, run
+# gem install bcrypt-ruby
 gem 'bcrypt-ruby', '3.0.1'
 
 # These gems are not used when deployed
@@ -45,6 +46,13 @@ group :test do
 	# You'll notice how the code in ~/spec/requests looks like English
 	# this is because of Capybara
 	gem 'capybara', '1.1.2'
+	# FactoryGirl allows you to easily create fake data to
+	# test out the functionality of your tests. Example: you
+	# can use it to create 100 users, who have 100 stories. Then
+	# you can make sure pagination is working right.
+	# All factories are in spec/factories.rb
+	# and are utilized all over spec/
+	gem 'factory_girl_rails', '4.1.0'
 end
 
 group :production do

@@ -48,6 +48,9 @@ class User < ActiveRecord::Base
   VALID_NAME_REGEX = /^[a-zA-Z]+( [a-zA-Z]+)*$/
   validates :name, presence: true, 
   								 length: { maximum: 30},
+  # TO-DO -- remove uppercase letters from REGEX
+  # as some databases do not allow for case-sensitive
+  # indecies. All user names must be lowercase.
   								 format: { with: VALID_NAME_REGEX },
   # Although the uniqueness should be tested in the 
   # model, it also needs to be tested in the database.

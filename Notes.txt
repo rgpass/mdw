@@ -31,6 +31,9 @@ Reverse a migration:
 $ bundle exec rake db:rollback
 	Note: Can also do $ rake db:migrate VERSION=0 to go to original. Can switch out the number as well.
 
+Clear the database:
+$ bundle exec rake db:reset
+
 Create a test database for RSpec purposes:
 $ bundle exec rake db:test:prepare
 	Note: Ensures that db/development.sqlite3 is reflected in db/test.sqlite3. This should be run after a migration and sometimes gets corrupted. Running again will fix it.
@@ -144,3 +147,14 @@ Update attributes individually:
 Update several attributes:
 >> user.update_attributes(name: "Bar")
 	Note: This is better for several attributes being updated. Also, it automatically saves. Can only update attributes that are marked accessible in the user model next to attr_accessible
+
+See what environment you're in:
+>> Rails.env
+	Note: If in development, can run Rails.env.development? which will return true
+
+Run the console in test environment:
+$ rails console test
+
+Run the console for the deployed app:
+$ heroku run console
+	Note: This is good when you want to define someone as an admin and/or moderator.

@@ -26,3 +26,17 @@ More advanced: Format is automatically done.
 11. Have the logo say "My Dysfunctional Workplace" if the width is sufficient, if not it shrinks it to "MDW"
 
 12. Terms of Use that must be agreed to before allowing the user to sign in
+
+13. Have a site that lists out signs of a dysfunctional workplace (to help users generate content)
+
+14. On the user's profile, it should show a snippet of their old posts to give more of a summary of their submissions
+
+15. /users/new redirects to /signup
+
+16. 404 is a custom page that redirects back to root
+
+17. Developers dashboard page that shows total number of stories, number of users, etc.
+
+18. Includes Google Analytics
+
+19. Allow for anonymous posting
