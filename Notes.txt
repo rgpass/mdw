@@ -22,8 +22,18 @@ $ rails new mdw --skip-test-unit
 Update gems:
 $ bundle update
 $ bundle install --without production
-	Note: --without production is 'remembered' and will not need to
-				be typed next time.
+	Note: --without production is 'remembered' and will not need to be typed next time.
+
+Migrate up the database to include new changes/additions to the data model:
+$ bundle exec rake db:migrate
+
+Reverse a migration:
+$ bundle exec rake db:rollback
+	Note: Can also do $ rake db:migrate VERSION=0 to go to original. Can switch out the number as well.
+
+Create a test database for RSpec purposes:
+$ bundle exec rake db:test:prepare
+	Note: Ensures that db/development.sqlite3 is reflected in db/test.sqlite3. This should be run after a migration and sometimes gets corrupted. Running again will fix it.
 
 Start Rails server and view in browser:
 $ rails s
@@ -31,6 +41,10 @@ http://localhost:3000/
 
 Interact with Rails application and try interactive Ruby:
 $ rails c
+	Note: Changes to variables are permanent here.
+
+Mess around with the application:
+$ rails c --sandbox
 
 
 						Setting up GitHub for a new project...
@@ -83,6 +97,9 @@ and FAQ page with no default test framework:
 $ rails generate controller StaticPages home faq --no-test-framework
 	Note: To undo this, replace generate with destroy
 
+Generate a user model with just name and email:
+$ rails generate model User name:string email:string
+
 
 						RSpec, Capybara, and Cucumber...
 Generate a test suite for static pages:
@@ -90,3 +107,40 @@ $ rails generate integration_test static_pages
 
 Run test-suite for entire spec folder:
 $ bundle exec rspec spec/
+
+Create a test database for RSpec purposes:
+$ bundle exec rake db:test:prepare
+	Note: Ensures that db/development.sqlite3 is reflected in db/test.sqlite3. This should be run after a migration and sometimes gets corrupted. Running again will fix it.
+
+
+						Active Record codes (all done inside the console)...
+Create a user (assuming User model already created):
+>> user = User.new(name: "Foo")
+>> user.save
+	Note: Could also combine these using create
+	User.create(name: "Foo")
+
+Find the first user (by primary key, typically is id):
+>> User.find(1)
+
+Return the value of an attribute:
+>> user.name
+
+Find by another attribute:
+>> User.find_by_name("Foo")
+	Note: ActiveRecord automatically creates this based off the attributes listed in the user table (found in 
+	db/migrate files). Creates one for each attribute.
+
+Find first user:
+>> User.first
+
+Find all users:
+>> User.all
+
+Update attributes individually:
+>> user.name = "Bar"
+>> user.save
+
+Update several attributes:
+>> user.update_attributes(name: "Bar")
+	Note: This is better for several attributes being updated. Also, it automatically saves. Can only update attributes that are marked accessible in the user model next to attr_accessible

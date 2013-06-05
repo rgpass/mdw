@@ -1,9 +1,17 @@
 Users:
-id								integer
-name							string
-email							string
+id								integer				primary key
+name							string				
+	--will be called username
+	--max length of 30 characters
+	--only letters and spaces
+password_digest		string
+  --encrypted hash
+created_at				datetime
+updated_at				datetime
 
-Posts:
-id								integer
+Stories:
+id								integer				primary key
 content						string
 user_id						integer
+created_at				datetime
+updated_at				datetime

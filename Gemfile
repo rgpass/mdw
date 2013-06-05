@@ -5,6 +5,10 @@ gem 'rails', '3.2.13'
 # elements. These can be found in any of the app/views 
 # files where a class is specified
 gem 'bootstrap-sass', '2.1'
+# bcrypt is a state-of-the-art hash function which
+# irreversibly encrypts the password to form the
+# password hash.
+gem 'bcrypt-ruby', '3.0.1'
 
 # These gems are not used when deployed
 group :development do
@@ -15,6 +19,11 @@ group :development do
 	# Driven Development. After installing, run the command:
 	# $ rails generate rspec:install
 	gem 'rspec-rails', '2.11.0'
+	# Annotate gem gives commented information in the model
+	# files to help with organization. Similar to the
+	# Data_Model.txt file that is manually updated
+	# Note: After $ bundle install, run $ bundle exec annotate
+	gem 'annotate', '2.5.0'
 end
 
 # Gems used only for assets and not required
