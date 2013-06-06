@@ -9,12 +9,23 @@ Mdw::Application.routes.draw do
 # This also provides several named routes automagically.
   resources :users
 
+# This line is similar to the above, however we limit
+# what is available as there would be no need to edit
+# the session.
+  resources :sessions, only: [:new, :create, :destroy]
+
 # Static pages
   root to: 'static_pages#home'
   match '/faq', to: 'static_pages#faq'
 
 # User pages
   match '/signup', to: 'users#new'
+
+# Session pages
+  match '/signin', to: 'sessions#new'
+  # The via: :delete indicates it should be invoked
+  # via a HTTP DELETE request.
+  match '/signout', to: 'sessions#destroy', via: :delete
 
 
   # Routes Layout
@@ -23,7 +34,7 @@ Mdw::Application.routes.draw do
 # FAQ        /faq           FAQ
 # Sign up    /signup        Sign Up
 # Sign in    /signin        Sign In
-# 
+# Sigh out   /signout       Sign Out
 
   # User pages layout
 # HTTP request URI            Action  Named Routes          Purpose

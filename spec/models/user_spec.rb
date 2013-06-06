@@ -24,6 +24,8 @@ describe User do
   it { should respond_to(:password_digest) }
   it { should respond_to(:password) }
   it { should respond_to(:password_confirmation) }
+  it { should respond_to(:remember_token) }
+  it { should respond_to(:authenticate) }
 
   it { should be_valid }
 
@@ -123,5 +125,13 @@ describe User do
   		# specify would sound grammatically better than it
   		specify { user_for_invalid_password.should be_false }
   	end
+  end
+
+  describe "Remember token" do
+    before { @user.save }
+    # Similar to it, its applies the subsequent test to 
+    # then given attribute rather than to the subject
+    # of the test (which is @user in this case)
+    its(:remember_token) { should_not be_blank }
   end
 end

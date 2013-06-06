@@ -38,6 +38,10 @@ class User < ActiveRecord::Base
   # For example, SQLite3 does, but PosgreSQL does not.
   before_save { name.downcase! }
 
+  # This creates a permanent token to be used as the
+  # cookie. See the bottom of the page for more details.
+  before_save :create_remember_token
+
   # Validations are typically done for presence, length
   # format, and uniqueness. For passwords and sometimes
   # emails, there's another validation for confirmation.
@@ -66,4 +70,13 @@ class User < ActiveRecord::Base
   # this further.
   validates :password, length: { minimum: 6 }
   validates :password_confirmation, presence: true
+
+  private 
+
+    # Creates a secure token to verify that the user
+    # is the right person and eliminates the security
+    # threat of session hijacking.
+    def create_remember_token
+      self.remember_token = SecureRandom.urlsafe_base64
+    end
 end

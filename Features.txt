@@ -44,3 +44,5 @@ More advanced: Format is automatically done.
 20. Error messages on sign up screen are in correct order.
 
 21. Users can delete or edit their stories.
+
+22. Similar to how a double-click when creating a user will only process one, set it up so when submitting a story a double-click will only process one.

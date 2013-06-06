@@ -150,6 +150,9 @@ Update several attributes:
 >> user.update_attributes(name: "Bar")
 	Note: This is better for several attributes being updated. Also, it automatically saves. Can only update attributes that are marked accessible in the user model next to attr_accessible
 
+Bypass validations (i.e. change something for all users, even though you don't know their passwords):
+>> User.all.each { |user| user.save(validate: false) }
+
 See what environment you're in:
 >> Rails.env
 	Note: If in development, can run Rails.env.development? which will return true

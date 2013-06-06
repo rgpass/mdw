@@ -31,6 +31,7 @@ class UsersController < ApplicationController
     #                  password: "foo", password_confirmation: "bar")
     @user = User.new(params[:user])
     if @user.save
+      sign_in @user
       # With this defined here, views/layouts/application now
       # will display the message below only after signing in
       # for the first time.
@@ -39,6 +40,7 @@ class UsersController < ApplicationController
       # Not sure why, but it does.
       redirect_to @user
     else
+      # Re-render the page but with error messages.
       render 'new'
     end
   end

@@ -6,6 +6,8 @@ name							string
 	--only letters and spaces
 password_digest		string
   --encrypted hash
+remember_token		string
+	--cookie to keep the user signed in
 created_at				datetime
 updated_at				datetime
 

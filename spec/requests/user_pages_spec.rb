@@ -43,8 +43,11 @@ describe "UserPages" do
   			before { click_button submit }
   			let(:user) { User.find_by_name("example user") }
 
+        # Should re-direct to their profile, give a flash
+        # alert, and change the header accordingly.
   			it { should have_selector('title', text: user.name) }
   			it { should have_selector('div.alert.alert-success', text: 'Welcome') }
+        it { should have_link('Sign Out') }
   		end
   	end
   end

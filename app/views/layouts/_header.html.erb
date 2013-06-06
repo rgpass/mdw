@@ -17,9 +17,16 @@
 					<li><%= link_to "FAQ", faq_path %></li>
 				</ul>
 				<ul class="nav pull-right">
-					<!-- Will need an if/else for if the user -->
-					<!-- is signed in or not. Assuming not for now -->
-					<li><%= link_to "Sign in", '#' %></li>
+					<!-- signed_in? is defined in -->
+					<!-- app/helpers/sessions_helper -->
+					<% if signed_in? %>
+						<li><%= link_to "Submit", '#' %></li>
+						<li><%= link_to "View Profile", current_user %></li>
+						<li><%= link_to "Sign Out", signout_path, method: "delete" %></li>
+					<% else %>
+						<li><%= link_to "Sign in", signin_path %></li>
+						<li><%= link_to "Sign up", signup_path %></li>
+					<% end %>
 				</ul>
 
 
