@@ -100,14 +100,16 @@ class UsersController < ApplicationController
   # They can however delete other admins.
   def destroy
     user = User.find(params[:id])
+      # Works
     if (current_user == user) && (!current_user.admin?)
       user.destroy
       flash[:success] = "Your profile and related stories are gone."
+      # Works
     elsif (current_user == user) && (current_user.admin?)
       flash[:error] = "Cannot delete own admin account"
     elsif (current_user != user) && (!current_user.admin?)
       flash[:error] = "You cannot delete other users."
-    else
+    elsif (current_user != user) && (current_user.admin?)
       user.destroy
       flash[:success] = "User and related posts destroyed."
     end
@@ -125,7 +127,7 @@ class UsersController < ApplicationController
       @user = User.find(params[:id])
       # The current_user? boolean is defined in
       # app/helpers/sessions_helper.rb
-      redirect_to(root_path) unless current_user?(@user)
+      redirect_to(root_path) unless current_user?(@user) || current_user.admin?
     end
 
     # If someone tries to delete something via the
