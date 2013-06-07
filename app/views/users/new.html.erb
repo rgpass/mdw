@@ -22,7 +22,7 @@
 			Make it so Password can't be blank doesn't show up twice. Also, if possible remove it from the top errors are printed in the right order.
 		</p>
 		<%= form_for(@user) do |f| %>
-			<%= render 'shared/error_messages' %>
+			<%= render 'shared/error_messages', object: f.object %>
 
 			<%= f.label :name, "Username" %>
 			<%= f.text_field :name %>

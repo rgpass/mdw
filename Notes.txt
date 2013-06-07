@@ -29,6 +29,19 @@ $ bundle exec rake db:migrate
 	Note: After deploying to Heroku, run:
 	$ heroku run rake db:migrate
 
+Full list of commands to push to Heroku:
+$ git push heroku master
+$ heroku pg:reset DATABASE
+$ heroku run rake db:migrate
+$ heroku run rake db:populate
+	Note: The last line puts in the data from lib/tasks/sample_data.rake
+
+To force an app restart (if the list above didn't work):
+$ touch foo
+$ git add foo
+$ git commit -m "foo"
+$ git push heroku
+
 Reverse a migration:
 $ bundle exec rake db:rollback
 	Note: Can also do $ rake db:migrate VERSION=0 to go to original. Can switch out the number as well.

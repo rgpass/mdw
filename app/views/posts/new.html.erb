@@ -1,0 +1,15 @@
+<h1>New post</h1>
+
+<%= form_for(@post) do |f| %>
+	<%= render 'shared/error_messages', object: f.object %>
+	<div class="field">
+		<%= f.text_area :content, placeholder: "Tell us a story..." %>
+	</div>
+	<%= f.submit "Post", class: "btn btn-large btn-primary" %>
+<% end %>
+
+<h2>Need to:</h2>
+<p>Change it so new post doesn't take up the whole width. Span class should work</p>
+
+<h2>Ideas for content generation</h2>
+<p>List out signs of a dysfunctional workplace</p>

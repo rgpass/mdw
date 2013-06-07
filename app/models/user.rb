@@ -37,6 +37,14 @@ class User < ActiveRecord::Base
   # return the user (instead of false)
   has_secure_password
 
+  # Associations are done with the belongs_to and
+  # has_many commands in the models. This is saying
+  # each user has_many posts associated with them.
+  # Check the post model for info on that.
+  # The dependent: :destroy ensures that posts
+  # are deleted when the user is deleted.
+  has_many :posts, dependent: :destroy
+
   # This makes sure that the user name is saved in all
   # lowercase. This is necessary because not all
   # databases support case-sensitive indices.

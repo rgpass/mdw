@@ -1,0 +1,18 @@
+<% if signed_in? %>
+<!-- If you want a message to be only for signed-in users, put it here -->
+<% else %>
+	<div class="center hero-unit">
+		<h1>My Dysfunctional Workplace</h1>
+		<h2>
+			<%= link_to "Sign up", signup_path %> or <%= link_to "sign in", '#' %> to tell the world your horror story.
+		</h2>
+		<%= link_to "Sign Up!", signup_path, class: "btn btn-large btn-primary" %>
+		<%= link_to "Sign In!", '#', class: "btn btn-large btn-primary" %>
+	</div>
+<% end %>
+
+<div id="posts">
+	<%= render @posts %>
+</div>
+
+<%= will_paginate @posts %>

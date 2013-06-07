@@ -48,6 +48,18 @@ module SessionsHelper
 		user == current_user
 	end
 
+  # If the user is not signed in, they should be
+  # redirected to the sign in site and notified
+  # that they should sign in. Their original
+  # requested URL is then stored. This method is
+  # defined in SessionsHelper
+  def signed_in_user
+    unless signed_in?
+      store_location
+      redirect_to signin_url, notice: "Please sign in."
+    end
+  end
+
 	def sign_out
 		self.current_user = nil
 		cookies.delete(:remember_token)

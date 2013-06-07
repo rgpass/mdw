@@ -10,12 +10,19 @@
 # sequencing purposes.
 FactoryGirl.define do 
 	factory :user do
-		name     "Gerry Pass"
+		name     {(0...8).map{(65+rand(26)).chr}.join.downcase}
 		password "foobar"
 		password_confirmation "foobar"
+
+		factory :admin do
+			admin true
+		end
 	end
 
-	factory :admin do
-		admin true
+	# By including user in the definition of the factory
+	# FactoryGirl already knows that's the associated user.
+	factory :post do
+		content "Lorem ipsum"
+		user
 	end
 end

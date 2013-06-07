@@ -1,4 +1,4 @@
-Users:
+Users: has_many :posts
 id								integer				primary key
 name							string				
 	--will be called username
@@ -12,7 +12,7 @@ admin							boolean
 created_at				datetime
 updated_at				datetime
 
-Stories:
+Post: belongs_to :user
 id								integer				primary key
 content						string
 user_id						integer

@@ -48,6 +48,10 @@ More advanced: Format is automatically done.
 22. Similar to how a double-click when creating a user will only process one, set it up so when submitting a story a double-click will only process one.
 
 23. Users can delete their profile and associated stories.
+--Done on 6/7/13
+--Users cannot delete other users or other user's posts
+--Admins can delete other users but not themselves
+--Admins can delete other user's posts
 
 24. Users can edit their information inside their view profile page.
 
@@ -58,3 +62,21 @@ More advanced: Format is automatically done.
 27. iPhone&iPad and/or Droid app
 
 28. More personality on the page. Instead of "Profile updated" for the success of a profile update, it could say something like "Profile now functional. Unlike your job."
+
+29. Cannot see other people's profiles unless you are that user or an admin. For example, if I'm user/2 and not an admin, I can't see user/4's profile.
+
+30. For all tests, write in where and how they were solved. Also explain what it's testing for.
+
+31. If a user deletes their account, they can decide if they want to make all of their posts from "anonymous" or if they want to delete all of their posts.
+
+32. Leaderboard that says who the top 5 posters are by quantity and votes.
+
+33. Contact form sent to us via email or a message checked in the Developers Dashboard. Need a means to respond to them.
+
+34. Can purchase gear like shirts, books, etc.
+
+35. Get some awesome SEO done.
+
+36. Get advertisements.
+
+37. Admin can delete posts

@@ -6,14 +6,14 @@
 class UsersController < ApplicationController
   # This means that the signed_in_user method has to be
   # called before doing anything else. This method is
-  # defined at the bottom. This is saying that the
+  # defined in SessionsHelper. This is saying that the
   # signed_in_user method is only applied before
   # someone does the edit or update actions.
   before_filter :signed_in_user, only: [:edit, :update, :destroy]
 
   # If it's the correct user, they can edit&update their
   # information, but not other people's.
-  before_filter :correct_user,   only: [:edit, :update]
+  before_filter :correct_user,   only: [:edit, :update, :destroy]
 
   # The admin_user method is explained below.
   before_filter :admin_user,     only: :destroy
@@ -29,33 +29,48 @@ class UsersController < ApplicationController
     # To see what params are pulled in via the URL,
     # run $ rake routes
   	@user = User.find(params[:id])
+    # This will paginate the posts on the show page.
+    # This limits it to 5 per page as well.
+    @posts = @user.posts.paginate(page: params[:page], per_page: 5)
   end
 
+  # If they are already signed in, they should not be
+  # able to access the new users page or be able to
+  # run a create action. They should be redirected to
+  # root_path
   def new
-    @user = User.new
+    if signed_in?
+      redirect_to root_path
+    else
+      @user = User.new
+    end
   end
 
   def create
-    # The params[:user] is pulled from the form_for on the
-    # new.html.erb view. It relates to the name of each
-    # of the fields (name, password, password_confirmation)
-    # and stores them as a hash (of hashes). The line
-    # below is the same as:
-    # @user = User.new(name: "foo bar", email: "foo@invalid",
-    #                  password: "foo", password_confirmation: "bar")
-    @user = User.new(params[:user])
-    if @user.save
-      sign_in @user
-      # With this defined here, views/layouts/application now
-      # will display the message below only after signing in
-      # for the first time.
-      flash[:success] = "Welcome to My Dysfunctional Workplace!"
-      # This is the same as: redirect_to user_url(@user).
-      # Not sure why, but it does.
-      redirect_to @user
+    if signed_in?
+      redirect_to root_path
     else
-      # Re-render the page but with error messages.
-      render 'new'
+      # The params[:user] is pulled from the form_for on the
+      # new.html.erb view. It relates to the name of each
+      # of the fields (name, password, password_confirmation)
+      # and stores them as a hash (of hashes). The line
+      # below is the same as:
+      # @user = User.new(name: "foo bar", email: "foo@invalid",
+      #                  password: "foo", password_confirmation: "bar")
+      @user = User.new(params[:user])
+      if @user.save
+        sign_in @user
+        # With this defined here, views/layouts/application now
+        # will display the message below only after signing in
+        # for the first time.
+        flash[:success] = "Welcome to My Dysfunctional Workplace!"
+        # This is the same as: redirect_to user_url(@user).
+        # Not sure why, but it does.
+        redirect_to @user
+      else
+        # Re-render the page but now error messages will show.
+        render 'new'
+      end
     end
   end
 
@@ -81,25 +96,28 @@ class UsersController < ApplicationController
   # doesn't have JS enabled. To support non-JS
   # deleting, see the RailsCast on "Destroy Without
   # JavaScript"
+  # This ensures that admins cannot delete themselves.
+  # They can however delete other admins.
   def destroy
-    User.find(params[:id]).destroy
-    flash[:success] = "User destroyed."
+    user = User.find(params[:id])
+    if (current_user == user) && (!current_user.admin?)
+      user.destroy
+      flash[:success] = "Your profile and related stories are gone."
+    elsif (current_user == user) && (current_user.admin?)
+      flash[:error] = "Cannot delete own admin account"
+    elsif (current_user != user) && (!current_user.admin?)
+      flash[:error] = "You cannot delete other users."
+    else
+      user.destroy
+      flash[:success] = "User and related posts destroyed."
+    end
     redirect_to root_path
   end
 
+
   private
 
-    # If the user is not signed in, they should be
-    # redirected to the sign in site and notified
-    # that they should sign in. Their original
-    # requested URL is then stored. This method is
-    # defined in SessionsHelper
-    def signed_in_user
-      unless signed_in?
-        store_location
-        redirect_to signin_url, notice: "Please sign in."
-      end
-    end
+
 
     # Redirect to the root path unless the current
     # user is the correct user.
@@ -114,6 +132,6 @@ class UsersController < ApplicationController
     # Terminal or making a URL for it, they are
     # redirected to root_path unless they're an admin.
     def admin_user
-      redirect_to(root_path) unless current_user.admin?
+      redirect_to(root_path) unless current_user.admin? || current_user?(@user)
     end
 end

@@ -27,6 +27,7 @@ describe User do
   it { should respond_to(:remember_token) }
   it { should respond_to(:admin) }
   it { should respond_to(:authenticate) }
+  it { should respond_to(:posts) }
 
   it { should be_valid }
   it { should_not be_admin }
@@ -144,5 +145,36 @@ describe User do
     # then given attribute rather than to the subject
     # of the test (which is @user in this case)
     its(:remember_token) { should_not be_blank }
+  end
+
+  describe "Post associations" do
+
+    before { @user.save }
+    # The let! (read: let bang) makes it so that the let
+    # is called immediately. Typically, let commands are
+    # lazy and will not be formed until referenced. The
+    # bang makes it get created immediately.
+    let!(:older_post) do
+      FactoryGirl.create(:post, user: @user, created_at: 1.day.ago)
+    end
+    let!(:newer_post) do
+      FactoryGirl.create(:post, user: @user, created_at: 1.hour.ago)
+    end
+
+    # Default for any array is [oldest, older, old, new, newer, newest]
+    # so this tests that the posts are stored in reverse order
+    # aka newer first (as done in any feed system)
+    it "Should have the right posts in the right order" do
+      @user.posts.should == [newer_post, older_post]
+    end
+
+    it "Should destroy associated posts" do
+      posts = @user.posts.dup
+      @user.destroy
+      posts.should_not be_empty
+      posts.each do |post|
+        Post.find_by_id(post.id).should be_nil
+      end
+    end
   end
 end

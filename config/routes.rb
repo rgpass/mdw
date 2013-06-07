@@ -14,8 +14,13 @@ Mdw::Application.routes.draw do
 # the session.
   resources :sessions, only: [:new, :create, :destroy]
 
+# Do not need :edit or :update because it will be
+# set up so once it's submitted, it's done. They
+# can delete it and re-type, but cannot edit.
+  resources :posts, only: [:index, :new, :create, :destroy]
+
 # Static pages
-  root to: 'static_pages#home'
+  root to: 'posts#index'
   match '/faq', to: 'static_pages#faq'
 
 # User pages
@@ -41,10 +46,17 @@ Mdw::Application.routes.draw do
 # GET          /users         index   users_path            lists all users
 # GET          /users/1       show    user_path(user)       show info for user 1
 # GET          /users/new     new     new_user_path         make a new user
-# POST         /users         created users_path            create the new user
+# POST         /users         create  users_path            create the new user
 # GET          /users/1/edit  edit    edit_user_path(user)  edit for user 1
 # PUT          /users/1       update  user_path(user)       update the info
 # DELETE       /users/1       destroy user_path(user)       delete user 1
+
+  # Post layout
+# HTTP request URI            Action  Named Routes          Purpose
+# GET          /posts         index   posts_path            lists all posts
+# GET          /posts/new     new     new_post_path         make a new post
+# POST         /posts         create  posts_path            create the new post
+# DELETE       /posts/1       destroy user_path(user)       delete the post with id 1
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
