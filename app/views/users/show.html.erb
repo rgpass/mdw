@@ -3,6 +3,16 @@
 	<aside class="span4">
 		<section>
 			<h1><%= @user.name %></h1>
+			
+				<p>
+				If admin and not your own profile see "delete": 
+				<% if current_user.admin? && !current_user?(@user) %>
+					<%= link_to "delete", @user, method: :delete, data: { confirm: "You sure?" } %>
+				<% end %>
+				</p>
+			
+
+			<h2>Things to add</h2>
 			<p>
 				Summary of awesomeness under the name, such as total number of stories submitted, total number of 'likes', average likes/submission
 			</p>

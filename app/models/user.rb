@@ -22,6 +22,11 @@ class User < ActiveRecord::Base
   # By default, ALL model attributes are accessible, but
   # attr_accessible means that those attributes are
   # automatically accessible to outside users.
+  # Note: admin is not on this list because
+  # attr_accessible attributes are the only attributes
+  # that can be mass assigned. This is for site security.
+  # Now a user can't send a put request of
+  # /users/17?admin=1 and change their admin rights.
   attr_accessible :name, :password, :password_confirmation
 
   # This is Rails magic. Explanation can be found in

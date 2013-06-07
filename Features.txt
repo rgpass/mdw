@@ -46,3 +46,15 @@ More advanced: Format is automatically done.
 21. Users can delete or edit their stories.
 
 22. Similar to how a double-click when creating a user will only process one, set it up so when submitting a story a double-click will only process one.
+
+23. Users can delete their profile and associated stories.
+
+24. Users can edit their information inside their view profile page.
+
+25. User profile pages have their username in the title.
+
+26. Site dynamically changes based on the width of the user's device/window (i.e. different views for phone, tablet, laptop, or monitor).
+
+27. iPhone&iPad and/or Droid app
+
+28. More personality on the page. Instead of "Profile updated" for the success of a profile update, it could say something like "Profile now functional. Unlike your job."

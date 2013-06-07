@@ -8,6 +8,7 @@ password_digest		string
   --encrypted hash
 remember_token		string
 	--cookie to keep the user signed in
+admin							boolean
 created_at				datetime
 updated_at				datetime
 

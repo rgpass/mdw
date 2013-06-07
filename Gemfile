@@ -10,6 +10,18 @@ gem 'bootstrap-sass', '2.1'
 # password hash. After $ bundle install, run
 # gem install bcrypt-ruby
 gem 'bcrypt-ruby', '3.0.1'
+# Faker allows you to make sample users with
+# semi-realistic names (and email addresses). This
+# way you don't have a user1 user2 user3 etc. but
+# you'll have Dr. James Brown, Jane Smith, etc.
+# This can be seen in lib/tasks/sample_data.rake
+gem 'faker', '1.0.1'
+# Pagination allows for long lists of data aka
+# an index of all users or stories to be separated
+# onto several pages. Bootstrap's pagination styles
+# require the Bootstrap pagination gem.
+gem 'will_paginate', '3.0.3'
+gem 'bootstrap-will_paginate', '0.0.6'
 
 # These gems are not used when deployed
 group :development do

@@ -44,8 +44,31 @@ module SessionsHelper
 		@current_user ||= User.find_by_remember_token(cookies[:remember_token])
 	end
 
+	def current_user?(user)
+		user == current_user
+	end
+
 	def sign_out
 		self.current_user = nil
 		cookies.delete(:remember_token)
+	end
+
+	# Method 1 of 2 for Friendly Forwarding
+	# Utilized in the UsersController in create action.
+	# Also used in SessionsController in create action.
+	def redirect_back_or(default)
+		redirect_to(session[:return_to] || default)
+		session.delete(:return_to)
+	end
+
+	# Method 2 of 2 for Friendly Forwarding
+	# The session facility is provided by rails.
+	# Can think of it as an instance cookies variable
+	# that deletes upon exiting the browser.
+	# We use request object to get the url of the page.
+	# Utilized in the signed_in_user method in the
+	# UsersController
+	def store_location
+		session[:return_to] = request.url
 	end
 end

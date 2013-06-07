@@ -59,4 +59,38 @@ describe "UserPages" do
   	it { should have_selector('h1',    text: user.name) }
   	it { should have_selector('title', text: user.name) }
   end
+
+  describe "Edit profile" do
+    let(:user) { FactoryGirl.create(:user) }
+    before do
+      sign_in user
+      visit edit_user_path(user)
+    end
+
+    describe "Page" do
+      it { should have_selector('h1',    text: "Update Your Profile") }
+      it { should have_selector('title', text: "Edit User") }
+    end
+
+    describe "With invalid information" do
+      before { click_button "Save Changes" }
+
+      it { should have_content('error') }
+    end
+
+    describe "With valid information" do
+      let(:new_name) { "New Name" }
+      before do
+        fill_in "Username",     with: new_name
+        fill_in "Password",     with: user.password
+        fill_in "Confirmation", with: user.password
+        click_button "Save Changes"
+      end
+
+      it { should have_selector('title', text: new_name.downcase) }
+      it { should have_selector('div.alert.alert-success') }
+      it { should have_link('Sign Out', href: signout_path) }
+      specify { user.reload.name.should == new_name.downcase }
+    end
+  end
 end

@@ -36,6 +36,9 @@ $ bundle exec rake db:rollback
 Clear the database:
 $ bundle exec rake db:reset
 
+Populate the database with fake data via the Faker gem:
+$ bundle exec rake db:populate
+
 Create a test database for RSpec purposes:
 $ bundle exec rake db:test:prepare
 	Note: Ensures that db/development.sqlite3 is reflected in db/test.sqlite3. This should be run after a migration and sometimes gets corrupted. Running again will fix it.
