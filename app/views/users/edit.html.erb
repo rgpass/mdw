@@ -6,13 +6,16 @@
 		<%= form_for(@user) do |f| %>
 			<%= render 'shared/error_messages', object: f.object %>
 
-			<%= f.label :name, "Username" %>
+			<%= f.label :name, "Username", class: "inline" %>
+			<%= render 'usernametip' %>
 			<%= f.text_field :name %>
 
-			<%= f.label :password %>
+			<%= f.label :password, class: "inline" %>
+			<%= render 'passwordtip' %>
 			<%= f.password_field :password %>
 
-			<%= f.label :password_confirmation, "Confirmation" %>
+			<%= f.label :password_confirmation, "Confirmation", class: "inline" %>
+			<%= render 'confirmationtip' %>
 			<%= f.password_field :password_confirmation %>
 
 			<%= f.submit "Save Changes", class: "btn btn-large btn-primary" %>

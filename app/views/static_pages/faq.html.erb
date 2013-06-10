@@ -8,18 +8,61 @@
 <!-- This is utilized in app/views/layouts/application.html.erb -->
 <% provide(:title, 'FAQ') %>
 <h1>Frequently Asked Questions</h1>
-<p>Frequently Asked Questions:</p>
-<ul> <!-- About -->
-	<li>What is MDW?</li>
-	<li>Who's behind MDW?</li>
-	<li>Press releases</li>
-</ul>
-<ul> <!-- Help -->
-	<li>How do I submit a story?</li>
-	<li>How do I delete a story?</li>
-	<li>How do I report a story?</li>
-	<li>How do I contact you?</li>
-</ul>
+<div class="tabbable">
+	<ul class="nav nav-tabs">
+		<li class="active"><a href="#tab1" data-toggle="tab">About Us</a></li>
+		<li><a href="#tab2" data-toggle="tab">Help</a></li>
+		<li><a href="#tab3" data-toggle="tab">Privacy Policy</a></li>
+		<li><a href="#tab4" data-toggle="tab">Legal</a></li>
+	</ul>
+	<div class="tab-content">
+		<div class="tab-pane active" id="tab1">
+			<ul>
+				<li>What is MDW?</li>
+				<p>MDW is the site where people go to tell stories of their dysfunctional workplaces. If you've ever had a nightmare about work, only to wake up and realize it's reality, this site is for you.</p>
+				<p>We promote the funniest stories and the ones that make you say "WTF?" If you hate your job, tell us a story why and maybe you and everyone else can get a laugh out of it.</p>
+				<li>Who's behind MDW?</li>
+				<p>MDW is created by a couple of guys who lost their souls to the corporate world. In an attempt to save their livers, they created a place to tell their ridiculous stories and commiserate with others.</p>
+				<!-- Press releases here when they come -->
+			</ul>
+		</div>
+		<div class="tab-pane" id="tab2">
+			<ul>
+				<li>How do I submit a story?</li>
+				<p>It's easy! <%= link_to 'Sign up', signup_path %>, click on <%= link_to "Submit", new_post_path %>, then write your story. We even give a guide on how to come up with content! Under <%= link_to "Submit", new_post_path %>, check out <%= link_to 'Signs of a Dysfunctional Workplace', new_post_path(anchor: 'signs') %>.</p>
+				<li>How do I delete a story?</li>
+				<p>The easiet way to delete your story is to go to <%= link_to 'your profile', current_user %>, search through your posts, then click "delete".</p>
+				<!-- How to edit once we can do that -->
+				<li>How do I report a story or a user?</li>
+				<p>Please send an e-mail to <%= mail_to "rgpass@gmail.com", "Gerry" %> with the post ID number or username.</p>
+				<li>How do I contact you?</li>
+				<p>Feel free to e-mail <%= mail_to "rgpass@gmail.com", "Gerry" %>.</p>
+			</ul>
+		</div>
+		<div class="tab-pane" id="tab3">
+			<ul>
+				<li>What do you do with user information?</li>
+				<p>Since we don't ask for anything sensitive, there's not that much information we have. Regardless, anything that could be considered personal is strictly private.</p>
+				<p>Information we can collect include how you interact with our site, services, statistics on page views, traffic to and from our site, IP addresses, and standard web log information.</p>
+				<p>The main purposes in collecting this information are to create a customized experience for you, assist in troubleshooting, improve our site, and assist in targeted marketing.
+				<li>How do you keep everything anonymous?</li>
+				<p>We regulate all user names and moderate all posts. User names should not describe the person or the company they work for. Stories are not allowed to say names of either people or companies.</p>
+				<li>What security do you have for passwords?</li>
+				<p>Passwords are encrypted via a <a href="http://en.wikipedia.org/wiki/Cryptographic_hash_function" target="_blank">cryptographic hash function</a>. Specifically, we use a state-of-the-art hash function called <a href="http://en.wikipedia.org/wiki/Bcrypt" target="_blank">bcrypt</a> to irreversibly encrypt passwords. In other words, even if we had knew your encrypted hash, we wouldn't be able to figure out your password.</p>
+				<p>Once encrypted, our database only stores the encrypted hash, not your password. For example, if your password is "foobar" (without the quotes), our database would store: "$2a$10$bxcgyeYk8NDa3x8GaOhyR.tyzt1NurUiGRAY1DWhPH4QfvHIwEsQC". If someone else had the same password of "foobar", it would not store as the same hash, either.</p>
+				<p><u>No one, including admins, has access to your password.</u></p>
+			</ul>
+		</div>
+		<div class="tab-pane" id="tab4">
+			<ul>
+				<li>Incorporation Information</li>
+			</ul>
+		</div>
+	</div>
+</div>
+
+
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 <ul> <!-- Privacy Policy -->
 	<li>We won't give their info away (none to give)</li>
 	<li>Require all posts to be anonymous</li>

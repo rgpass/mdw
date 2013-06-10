@@ -207,12 +207,23 @@ input {
   @extend .error;
 }
 
-/* microposts */
+/* posts */
+
+#inner {
+  width: 50%;
+  margin: 0 auto;
+}
 
 .posts {
   list-style: none;
-  margin: 10px 0 0 0;
-
+  margin: 10px 0 20px 0;
+  padding: 5px;
+  line-height: 1.4em;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  box-shadow: 1px 1px 10px #444;
+/*  width: 80%; */
   li {
     padding: 10px 0;
     border-top: 1px solid #e8e8e8;
@@ -233,4 +244,27 @@ aside {
     height: 100px;
     margin-bottom: 5px;
   }
+}
+
+/* signup jQuery countdown */
+
+.countdown {
+  display: inline;
+  color: $grayLight;
+}
+
+/* popovers and tooltips */
+/* For the whole popover, use .popover */
+/* For just the title, use .popover-title */
+/* For the content, use .popover-content */
+.popover {
+  width: auto;
+}
+
+.popover-title {
+  font-weight: bold;
+}
+
+.inline {
+  display: inline;
 }

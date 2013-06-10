@@ -13,4 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap
+//= bootstrap-tooltip
+//= bootstrap-popover
+//= require signup
 //= require_tree .

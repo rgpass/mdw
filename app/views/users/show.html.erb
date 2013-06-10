@@ -2,44 +2,59 @@
 <div class="row">
 	<aside class="span4">
 		<section>
-			<h1><%= @user.name %></h1>
-			
-				<p>
-				If admin and not your own profile see "delete": 
-				<% if current_user.try(:admin?) %>
-					<%= link_to "delete this profile", @user, method: :delete, data: { confirm: "You sure?" } %>
+			<h1>
+				<%= @user.name %>
+				<% if current_user.try(:admin?) || current_user?(@user) %> | 
+					<%= link_to "delete profile", @user, method: :delete, data: { confirm: "If you delete your profile, all your posts will be lost." } %>
 				<% end %>
-				<% if @user == current_user %>
-					<%= link_to "delete your profile", current_user, method: :delete, data: { confirm: "If you delete your profile, all your posts will be lost." } %>
+			</h1>
+			<h3>Stats</h3>
+			<p>
+				<% if @user.posts.any? %>
+					<%= pluralize(@user.posts.count, 'story') %> submitted.
+				<% else %>
+					0 stories submitted.
 				<% end %>
-				</p>
-
-				<div class="span8">
-					<% if @user.posts.any? %>
-						<h3>Posts (<%= @user.posts.count %>)</h3>
-						<ol class="posts">
-							<%= render @posts %>
-						</ol>
-						<%= will_paginate @posts %>
-					<% else %>
-						<p>You haven't submitted a post yet!</p>
-					<% end %>
-				</div>
-			
-
-			<h2>Things to add</h2>
-			<p>
-				Summary of awesomeness under the name, such as total number of stories submitted, total number of 'likes', average likes/submission
 			</p>
 			<p>
-				Submit field on the right with a link to a list of signs of dysfunction
-			</p>
-			<p>
-				Previously submitted stories on the bottom paginated with link(s) to delete them. Maybe just put two stories: their most popular one and their least popular one?
-			</p>
-			<p>
-				Needs a delete link so users can delete their own profiles.
+				Created <%= time_ago_in_words(@user.created_at) %> ago.
 			</p>
 		</section>
 	</aside>
+
+
+	<div class="span8">
+		<% if @user.posts.any? %>
+			<h3>Posts (<%= @user.posts.count %>)</h3>
+			<ol>
+				<%= render @posts %>
+			</ol>
+			<div class="row-fluid">
+				<div class="span12 pagination-centered">
+					<%= will_paginate @posts %>
+				</div>
+			</div>
+		<% else %>
+			<h2>Welcome to MDW</h2>
+			<p>
+				Check out the 
+				<%= link_to "horror stories", root_path %> or 
+				<%= link_to "submit your own!", new_post_path %>
+			</p>
+		<% end %>
+	</div>
+
+	<% if current_user.try(:admin?) %>
+		<h2>Things to add</h2>
+		<p>
+			Summary of awesomeness under the name, such as total number of stories submitted, total number of 'likes', average likes/submission
+		</p>
+		<p>
+			Stats should include their most popular story. Maybe their least popular one as well?
+		</p>
+		<p>
+			Should have a logo somewhere so it doesn't look bland.
+		</p>
+	<% end %>
+
 </div>

@@ -4,15 +4,28 @@
 	<div class="center hero-unit">
 		<h1>My Dysfunctional Workplace</h1>
 		<h2>
-			<%= link_to "Sign up", signup_path %> or <%= link_to "sign in", '#' %> to tell the world your horror story.
+			<%= link_to "Sign up", signup_path %> or <%= link_to "sign in", signin_path %> to tell the world your horror story.
 		</h2>
 		<%= link_to "Sign Up!", signup_path, class: "btn btn-large btn-primary" %>
-		<%= link_to "Sign In!", '#', class: "btn btn-large btn-primary" %>
+		<h4 class="inline">or</h4>
+		<%= link_to "Sign In!", signin_path, class: "btn btn-large btn-primary" %>
 	</div>
 <% end %>
-
-<div id="posts">
-	<%= render @posts %>
+<div class="row">
+	<div class="span8 offset2">
+		<div>
+			<%= render @posts %>
+		</div>
+	</div>
+</div>
+<div class="row-fluid">
+	<div class="span12 pagination-centered">
+		<%= will_paginate @posts %>
+	</div>
 </div>
 
-<%= will_paginate @posts %>
+<% if current_user.try(:admin?) %>
+	<p>
+		Need to have a logo or something at the top so the page isn't so bland above the fold.
+	</p>
+<% end %>
