@@ -77,5 +77,13 @@
 	<p>Need to figure out how to not let them post HTML -- Textile only</p>
 
 <%= RedCloth.new("test").to_html %>
+<%= RedCloth.new("_I work at a steel mill_
+
+**Me:** Boss, I'm so F'ing sore. I feel like the Tin Man from Wizard of Oz.
+
+**Boss:** Well, you SHOULD feel like the Steel Man. That's why Coworker over here is making more than you and started after you!
+
+_I turn around to see Coworker doing the dance from Wizard of Oz_").to_html %>
+<span id="previewhtml" class="previewcss"></span>
 <%= current_user.name %>
 <% end %>

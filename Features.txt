@@ -20,12 +20,14 @@ More advanced: Format is automatically done.
 8. Domain-specific email (i.e. gerry@mydysfunctionalworkplace.com)
 
 9. Add an icon image and a logo
+--Temporary one done 6/13/13
 
 10. Submissions go through an 'approval' process first
 
 11. Have the logo say "My Dysfunctional Workplace" if the width is sufficient, if not it shrinks it to "MDW"
+--Not relevant
 
-12. Terms of Use that must be agreed to before allowing the user to sign in
+12. Terms of Use that must be agreed to before allowing the user to sign up
 
 13. Have a site that lists out signs of a dysfunctional workplace (to help users generate content)
 
