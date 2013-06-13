@@ -1,6 +1,6 @@
 
 <li class="posts">
-	<span class="content"><%= wrap(post.content) %></span>
+	<span class="content"><%= wrap(RedCloth.new(post.content).to_html) %></span>
 	<span class="timestamp">
 		Story #<%= post.id %> told <%= time_ago_in_words(post.created_at) %> ago by <%= post.user.name %>
 	</span>

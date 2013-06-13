@@ -16,4 +16,6 @@
 //= bootstrap-tooltip
 //= bootstrap-popover
 //= require signup
+//= require preview
+//= require showdown
 //= require_tree .

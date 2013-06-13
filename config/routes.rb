@@ -22,6 +22,7 @@ Mdw::Application.routes.draw do
 # Static pages
   root to: 'posts#index'
   match '/faq', to: 'static_pages#faq'
+  match '/home', to: 'static_pages#home'
 
 # User pages
   match '/signup', to: 'users#new'

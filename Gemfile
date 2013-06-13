@@ -22,6 +22,10 @@ gem 'faker', '1.0.1'
 # require the Bootstrap pagination gem.
 gem 'will_paginate', '3.0.3'
 gem 'bootstrap-will_paginate', '0.0.6'
+gem 'RedCloth'
+gem 'showdown-rails'
+gem 'jquery-rails', '2.0.2'
+gem 'coffee-rails', '3.2.2'
 
 # These gems are not used when deployed
 group :development do
@@ -47,11 +51,11 @@ group :assets do
 	# that end with .css.scss -- these are Sass sheets
   gem 'sass-rails',   '3.2.5'
   # CoffeeScript is a framework for JavaScript, similar to jQuery
-  gem 'coffee-rails', '3.2.2'
+
   gem 'uglifier', '1.2.3'
 end
 
-gem 'jquery-rails', '2.0.2'
+
 
 group :test do
 	# Capybara works with RSpec to make the tests easier to code
