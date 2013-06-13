@@ -1,0 +1,20 @@
+<% provide(:title, "Edit Story") %>
+<h1>Edit Story</h1>
+
+<% if current_user.try(:admin?) %>
+	User: <%= User.find_by_id(@post.user_id).name %> <br>
+	ID:   <%= @post.user_id %> <br>
+	Post ID: <%= @post.id %> <br>
+<% end %>
+	<%= form_for(@post) do |f| %>
+	<%= render 'shared/error_messages', object: f.object %>
+
+	<%= f.label :title, "What's the story called?", class: "strong" %>
+	<%= f.text_field(:title) %>
+
+	<br><br>
+	<%= f.label :content, "What happened?", class: "strong" %>
+	<%= f.text_area(:content, placeholder: "Listen to this crap...") %>
+
+	<%= f.submit "Update", class: "btn btn-large btn-primary" %>
+<% end %>

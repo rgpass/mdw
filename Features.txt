@@ -44,6 +44,8 @@ More advanced: Format is automatically done.
 20. Error messages on sign up screen are in correct order.
 
 21. Users can delete or edit their stories. Admins can edit stories.
+--Done 6/13/13
+--Can be found in the Posts controller and associated post pages
 
 22. Similar to how a double-click when creating a user will only process one, set it up so when submitting a story a double-click will only process one.
 
@@ -60,14 +62,16 @@ More advanced: Format is automatically done.
 --Completed by providing the username for the page title
 
 26. Site dynamically changes based on the width of the user's device/window (i.e. different views for phone, tablet, laptop, or monitor).
+--Done when Bootstrap installed
 
 27. iPhone&iPad and/or Droid app
 
 28. More personality on the page. Instead of "Profile updated" for the success of a profile update, it could say something like "Profile now functional. Unlike your job."
 
 29. Cannot see other people's profiles unless you are that user or an admin. For example, if I'm user/2 and not an admin, I can't see user/4's profile.
+--Done 6/13/13
 
-30. For all tests, write in where and how they were solved. Also explain what it's testing for.
+30. For all tests, write in where and how they were solved. Also explain what it's testing for. Write tests for current functionality.
 
 31. If a user deletes their account, they can decide if they want to make all of their posts from "anonymous" or if they want to delete all of their posts.
 
@@ -85,7 +89,7 @@ More advanced: Format is automatically done.
 --Done 6/7/13
 --Links formatted so only admins and current_user can either delete a profile or posts
 
-38. Easy pop-up for users to sign up. See the second answer on: http://stackoverflow.com/questions/12128425/contain-form-within-a-bootstrap-popover
+38. Easy pop-up for users to sign up or sign in. See Bootstrap's modals: http://twitter.github.io/bootstrap/javascript.html#modals
 
 39. Fluid paginate boxes
 --Done 6/10/13

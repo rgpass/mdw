@@ -49,6 +49,7 @@ section {
 
 textarea {
   resize: vertical;
+  height: 150px;
 }
 
 .center {
@@ -61,6 +62,14 @@ textarea {
 .brand {
   height: 20px;
   width: auto;
+}
+
+.logopic {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: right;
+  margin-bottom: 25px;
 }
 
 /* typography */
@@ -88,6 +97,10 @@ h2 {
 p {
   font-size: 1.1em;
   line-height: 1.7em;
+}
+
+.strong {
+  font-weight: bold;
 }
 
 /* header */
@@ -292,6 +305,15 @@ ul.faq {
 }
 
 /* submit page */
+.linespace {
+
+  li {
+    margin-bottom: 0em;
+    font-size: 1.1em;
+    line-height: 1.7em;
+  }
+}
+
 .signs {
   h4 {
   }
@@ -299,8 +321,46 @@ ul.faq {
   }
 }
 
-#preview {
+.previewoutline {
+  display: inline;
+  line-height: 1.4em;
+  border-radius: 20px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  box-shadow: 1px 1px 10px #444;
+  margin: 10px 0 20px 0;
+  padding: 5px;
+  p {
+    margin-bottom: 0px;
+  } 
+}
+
+.previewcss {
   display: inline;
   padding-left: 30px;
-  color: $grayLight;
+  width: 100%;
+  word-wrap:break-word;
+  margin: 0;
+  padding: 0;
+  line-height: 1.4em;
+  display: block;
+  h3 {
+    color: green;
+  }
+  p {
+    line-height: 1.4em;
+    margin-bottom: 0.5em;
+  }
+}
+
+.wordwrap {
+  word-wrap:break-word;
+}
+
+@media (max-width: 767px) {
+  .previewoutline {
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  }
 }

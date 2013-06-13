@@ -4,12 +4,13 @@ class PostsController < ApplicationController
 	# however all users can see the index. This will be
 	# the root page when finished.
 	# Could also do :signed_in_user, except: [:index]
-	before_filter :signed_in_user, only: [:new, :create, :destroy]
+	before_filter :signed_in_user, only: [:new, :create, :edit, :update, :destroy]
 	# This correct_user method is different than the one
 	# defined in the users controller because this one
 	# tests to make sure that the user_id for that post
 	# correlates to the correct user.
-	before_filter :correct_user,   only: :destroy
+	before_filter :correct_user,   only: [:edit, :update, :destroy]
+	before_filter :story_owner,    only: [:edit, :update]
 
 	def index
 		# Index paginates posts so 7 per page
@@ -30,6 +31,22 @@ class PostsController < ApplicationController
 		end
 	end
 
+	def edit
+		@post = Post.find(params[:id])
+	end
+
+	def update
+		if @post.update_attributes(params[:post])
+      # Handle a successful update
+      flash[:success] = "Story updated"
+      redirect_to root_url
+    else
+       # Re-render the page but this time the error
+       # messages will show (coded into edit view)
+       render 'edit'
+    end
+	end
+
 	def destroy
 		if (@post.user_id == current_user.id) || current_user.admin?
 			@post.destroy
@@ -46,5 +63,10 @@ class PostsController < ApplicationController
 		def correct_user
 			@post = Post.find_by_id(params[:id])
 			redirect_to root_url if @post.nil?
+		end
+
+		def story_owner
+			@post = Post.find(params[:id])
+			redirect_to root_url unless (@post.user_id == current_user.id) || current_user.try(:admin?)
 		end
 end

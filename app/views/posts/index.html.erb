@@ -1,8 +1,13 @@
+
+		
 <% if signed_in? %>
-<!-- If you want a message to be only for signed-in users, put it here -->
+
+<img src="http://tinyurl.com/l5vxloq" class="logopic" /><br />
 <% else %>
 	<div class="center hero-unit">
-		<h1>My Dysfunctional Workplace</h1>
+		<h1>My Dysfunctional</h1>
+		<%= link_to image_tag('http://tinyurl.com/l5vxloq'), root_path %>
+		<h1>Workplace</h1>
 		<h2>
 			<%= link_to "Sign up", signup_path %> or <%= link_to "sign in", signin_path %> to tell the world your horror story.
 		</h2>
@@ -11,6 +16,7 @@
 		<%= link_to "Sign In!", signin_path, class: "btn btn-large btn-primary" %>
 	</div>
 <% end %>
+
 <div class="row">
 	<div class="span8 offset2">
 		<div>
@@ -25,7 +31,5 @@
 </div>
 
 <% if current_user.try(:admin?) %>
-	<p>
-		Need to have a logo or something at the top so the page isn't so bland above the fold.
-	</p>
+
 <% end %>

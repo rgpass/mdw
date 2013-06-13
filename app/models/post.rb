@@ -5,7 +5,7 @@
 # be edited, so we remove it from the list.
 
 class Post < ActiveRecord::Base
-  attr_accessible :content
+  attr_accessible :content, :title
 
   # Associations are done with belongs_to and has_many
   # this is saying that each post belongs_to a user.
@@ -14,6 +14,7 @@ class Post < ActiveRecord::Base
   # Could add length: { maximum: 140 } to the end of
   # content to limit to 140 characters.
   validates :content, presence: true
+  validates :title,   presence: true, length: { maximum: 40 }
   validates :user_id, presence: true
 
   # This code assigns the default order to be

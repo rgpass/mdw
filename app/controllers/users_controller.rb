@@ -13,7 +13,7 @@ class UsersController < ApplicationController
 
   # If it's the correct user, they can edit&update their
   # information, but not other people's.
-  before_filter :correct_user,   only: [:edit, :update, :destroy]
+  before_filter :correct_user,   only: [:show, :edit, :update, :destroy]
 
   # The admin_user method is explained below.
   before_filter :admin_user,     only: :destroy
@@ -127,13 +127,13 @@ class UsersController < ApplicationController
       @user = User.find(params[:id])
       # The current_user? boolean is defined in
       # app/helpers/sessions_helper.rb
-      redirect_to(root_path) unless current_user?(@user) || current_user.admin?
+      redirect_to(root_path) unless current_user?(@user) || current_user.try(:admin?)
     end
 
     # If someone tries to delete something via the
     # Terminal or making a URL for it, they are
     # redirected to root_path unless they're an admin.
     def admin_user
-      redirect_to(root_path) unless current_user.admin? || current_user?(@user)
+      redirect_to(root_path) unless current_user.try(:admin?) || current_user?(@user)
     end
 end

@@ -1,38 +1,57 @@
 <% provide(:title, "Submit Story") %>
-<h1>New post</h1>
-<textarea id="stuff"></textarea>
-<span id="preview">blah</span>
+<h1>Submit Story</h1>
 
 <div class="row">
-	<div class="span6 offset3">
-		<h3 class="center">How to write a new post</h3>
+	<div class="span5 offset1 linespace">
+		<h3>How-to:</h3>
 		<ul>
-			<li>Wrap words with an asterik (*) to make it bold</li>
+			<li>Wrap words with two asteriks (**) to make it bold</li>
 			<li>Wrap words with an underline (_) to make it italics.</li>
 			<li>Give background information and non-verbal descriptions with italics and show people with bold.</li>
+			<li>Double-space to go to the next line</li>
+			<li>Cuss words may only show the first letter</li>
 			<li>Everything should be anonymous!</li>
-		</ul>
-		Example: <br>
+		</ul><br>
+	</div>
+	<div class="span6">
+		<h3>For example:</h3>
+		<strong>Copy and paste this into "What happened?":</strong> <br><br>
 		<p>_I work at a steel mill_</p>
-		<p>*Me:* Boss, I feel like the Tin Man from Wizard of Oz.</p>
-		<p>*Boss:* Well, you SHOULD feel like the Steel Man. That's why Coworker over here is making more than you and started after you!</p>
+		<p>**Me:** Boss, I'm so F'ing sore. I feel like the Tin Man from Wizard of Oz.</p>
+		<p>**Boss:** Well, you SHOULD feel like the Steel Man. That's why Coworker over here is making more than you and started after you!</p>
 		<p>_I turn around to see Coworker doing the dance from Wizard of Oz_</p>
 	</div>
-</div>
-<div id="demo"></div>
-
+</div><br>
 
 <div class="row">
-	<div class="span6 offset3">
+	<div class="span5 offset1">
+		<h3>Tell us a story...</h3>
 		<%= form_for(@post) do |f| %>
 			<%= render 'shared/error_messages', object: f.object %>
-			<div class="field">
-				<%= f.text_area :content, placeholder: "Tell us your story..." %>
-			</div>
+			
+			<%= f.label :title, "What's the story called?", class: "strong" %>
+			<%= f.text_field(:title, value: "Example Title") %>
+
+			<br><br>
+			<%= f.label :content, "What happened?", class: "strong" %>
+			<%= f.text_area(:content, placeholder: "Listen to this crap...") %>
+
 			<%= f.submit "Post", class: "btn btn-large btn-primary" %>
 		<% end %>
 	</div>
+
+	<div class="span6">
+		<h3>Preview:</h3>
+			<div class="span6 offset3 previewoutline">
+				<h4><span id="title" class="wordwrap"></span></h4>
+				<span id="preview" class="previewcss"></span>
+				<p class="timestamp">
+					Story #<%= Post.count + 1 %> told 32 minutes ago by <%= current_user.name %>
+				</p>
+		</div>
+	</div>
 </div>
+
 
 <div class="row">
 	<div class="span6 offset3 signs">
@@ -55,6 +74,8 @@
 	<p>List out signs of a dysfunctional workplace</p>
 	<p>Number the list and when you add tags, people can tag a certain number to see more of that type. People could tag it like: #bosses3 where #3 under bosses could be like "Boss is the office bully"</p>
 	<p>May need to change the span if the Signs portion goes too wide</p>
+	<p>Need to figure out how to not let them post HTML -- Textile only</p>
 
 <%= RedCloth.new("test").to_html %>
+<%= current_user.name %>
 <% end %>
