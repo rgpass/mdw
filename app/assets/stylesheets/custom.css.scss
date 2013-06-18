@@ -6,6 +6,11 @@
 /* of the Header bar and drop down menu */
 $navbarBackgroundHighlight: white;
 $navbarBackground: white;
+$navbarLinkColor: red;
+/* List of more colors can be found at: */
+/* https://github.com/cloudhead/less.js/blob/master/lib/less/colors.js */
+/* Custom color coding support: */
+/* http://www.lavishbootstrap.com/
 
 /* This is how you include Bootstrap's CSS */
 @import "bootstrap";
@@ -70,6 +75,8 @@ textarea {
   margin-right: auto;
   text-align: right;
   margin-bottom: 25px;
+  width: 500px;
+  height: auto;
 }
 
 /* typography */
@@ -102,6 +109,25 @@ p {
 .strong {
   font-weight: bold;
 }
+
+.red {
+  color: red;
+}
+
+a {
+  color: red;
+  &:hover {
+    color: black;
+    text-decoration: none;
+  }
+  &:focus {
+    outline: none;
+  }
+}
+
+:focus {outline:none;}
+::-moz-focus-inner {border:0;}
+
 
 /* header */
 
@@ -143,9 +169,10 @@ footer {
   border-top: 1px solid $grayMediumLight;
   color: $grayLight;
   a {
-    color: $gray;
+    color: red;
     &:hover { 
-      color: $grayDarker;
+      color: black;
+      text-decoration: none;
     }
   }  
   small { 
@@ -241,6 +268,7 @@ input {
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
   box-shadow: 1px 1px 10px #444;
+  
 /*  width: 80%; */
   li {
     padding: 10px 0;

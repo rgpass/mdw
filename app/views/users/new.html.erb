@@ -25,7 +25,7 @@
 			<%= render 'confirmationtip' %>
 			<%= f.password_field :password_confirmation, placeholder: "Same as Password" %>
 
-			<%= f.submit "Create my account", class: "btn btn-large btn-primary" %>
+			<%= f.submit "Create my account", class: "btn btn-large btn-danger" %>
 		<% end %>
 
 		<% if current_user.try(:admin?) %>
