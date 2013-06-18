@@ -98,3 +98,5 @@ More advanced: Format is automatically done.
 --Needed to wrap them in a special class
 
 40. Formatted e-mail automatically pops up when reporting a post
+
+41. Can easily share stories
