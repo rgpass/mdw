@@ -79,6 +79,23 @@ textarea {
   height: auto;
 }
 
+@media (min-width: 1200px) {
+  .mdwtitle {
+    margin-top: 35px;
+  }
+}
+
+@media (max-width: 979px) {
+  .mdwtitle {
+    margin-top: -30px;
+  }
+}
+
+.bordertest {
+  border: 2px dashed green;
+}
+
+@media (max-width: 984px) {}
 /* typography */
 
 h1, h2, h3, h4, h5, h6 {

@@ -6,7 +6,7 @@
 <% else %>
 	<div class="center hero-unit">
 		<h1>My Dysfunctional</h1>
-		<%= link_to image_tag('http://tinyurl.com/l5vxloq'), root_path %>
+		<%= link_to image_tag('http://tinyurl.com/mcd49em'), root_path %>
 		<h1>Workplace</h1>
 		<h2>
 			<%= link_to "Sign up", signup_path %> or <%= link_to "sign in", signin_path %> to tell the world your horror story.
@@ -14,6 +14,26 @@
 		<%= link_to "Sign Up!", signup_path, class: "btn btn-large btn-danger" %>
 		<h4 class="inline">or</h4>
 		<%= link_to "Sign In!", signin_path, class: "btn btn-large btn-danger" %>
+	</div>
+
+	<div class="center hero-unit">
+		<div class="row-fluid">
+			<div class="span4 bordertest">
+				<%= link_to image_tag('http://tinyurl.com/mcd49em', class: "logopic"), root_path %>
+
+						<%= link_to "Sign Up!", signup_path, class: "btn btn-large btn-danger pull-left" %>
+
+						<%= link_to "Sign In!", signin_path, class: "btn btn-large btn-danger pull-right" %>
+
+			</div>
+
+			<div class="span8 bordertest">
+				<h1 class="mdwtitle">My Dysfunctional Workplace</h1>
+				<h2>
+					<%= link_to "Sign up", signup_path %> or <%= link_to "sign in", signin_path %> to tell the world your horror story.
+				</h2>
+			</div>
+		</div>
 	</div>
 <% end %>
 
