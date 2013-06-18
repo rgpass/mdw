@@ -22,7 +22,12 @@ gem 'faker', '1.0.1'
 # require the Bootstrap pagination gem.
 gem 'will_paginate', '3.0.3'
 gem 'bootstrap-will_paginate', '0.0.6'
+# RedCloth allows for Textile text management, so
+# users don't have to input HTML into a text box
+# they can use **bold** or _italic_
 gem 'RedCloth'
+# showdown allows for the viewing of textile text
+# in a HTML preview
 gem 'showdown-rails'
 gem 'jquery-rails', '2.0.2'
 gem 'coffee-rails', '3.2.2'
@@ -75,4 +80,5 @@ group :production do
 	# The pg gem is the database used by Heroku. Short for PosgreSQL
 	# which is pronounced Post-greS-Q-L
 	gem 'pg', '0.12.2'
+	gem 'rack-google_analytics', :require => "rack/google_analytics"
 end
