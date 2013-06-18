@@ -153,7 +153,8 @@ a {
 /* device it's being viewed on */
 @media (max-width: 979px) {
   body {
-    padding: 0 0 0 0;
+    padding-top: 0;
+    padding-bottom: 0;
   }
 }
 
