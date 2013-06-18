@@ -8,6 +8,7 @@
 	  <%= javascript_include_tag "application" %>
 	  <%= csrf_meta_tags %>
 	  <%= render 'layouts/shim' %>
+	  <%= render :partial => ‘layouts/ga’ if Rails.env == "production" %>
 	  <link rel="icon" href="http://tinyurl.com/m6ky744" type="image/x-icon" />
 		<link rel="shortcut icon" href="http://tinyurl.com/m6ky744" type="image/x-icon" />
 		<meta name="google-site-verification" content="Gjkh7r69UseN7v_Ag8OjiJMJi8-wMhEzy9LR-STPUUI" />
