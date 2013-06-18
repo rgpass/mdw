@@ -151,11 +151,7 @@ a {
 /* the margin disappears. Can use @media to make the */
 /* site look different depending on the size of the */
 /* device it's being viewed on */
-@media (max-width: 980px) {
-	.navbar {
-	margin: 0 0 0 0;
-	}
-}
+
 
 .navbar-inner {
 	@include box-shadow(none !important);
