@@ -118,3 +118,6 @@ More advanced: Format is automatically done.
 	--Favicon doesn't load
 	--Dotted outline on text fields and buttons that are focused
 	--Logo in top left looks small/crappy
+
+47. Get on Affiliate Marketing
+	--Sign up on Amazon as an Amazon Associate, then you can click on any product, they generate a special link, and if they buy it you get a commission. Also get commission on whatever else they buy at the same time.
