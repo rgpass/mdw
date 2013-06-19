@@ -1,6 +1,38 @@
 <% provide(:title, "Submit Story") %>
 <h1>Submit Story</h1>
 
+<h6 class="center">Need help coming up with a story? Check out the <%= link_to "signs of dysfunction", signs_path %>.</h6>
+
+<div class="row">
+	<div class="span5 offset1">
+		<h3>Tell us a story...</h3>
+		<%= form_for(@post) do |f| %>
+			<%= render 'shared/error_messages', object: f.object %>
+			
+			<%= f.label :title, "What's the story called?", class: "strong" %>
+			<%= f.text_field(:title, value: "Example Title") %>
+
+			<br><br>
+			<%= f.label :content, "What happened?", class: "strong" %>
+			<%= f.text_area(:content, placeholder: "Listen to this crap...") %>
+
+
+	</div>
+
+	<div class="span6">
+		<h3>Preview:</h3>
+		<div class="span6 offset3 previewoutline">
+			<h4><span id="title" class="wordwrap"></span></h4>
+			<span id="preview" class="previewcss"></span>
+			<p class="timestamp">
+				Story #<%= Post.count + 1 %> told 32 minutes ago by <%= current_user.name %>
+			</p>
+		</div>
+		<%= f.submit "Submit", class: "btn btn-large btn-danger pull-right" %>
+		<% end %>
+	</div>
+</div>
+
 <div class="row">
 	<div class="span5 offset1 linespace">
 		<h3>How-to:</h3>
@@ -21,59 +53,15 @@
 		<p>**Boss:** Well, you SHOULD feel like the Steel Man. That's why Coworker over here is making more than you and started after you!</p>
 		<p>_I turn around to see Coworker doing the dance from Wizard of Oz_</p>
 	</div>
-</div><br>
-
-<div class="row">
-	<div class="span5 offset1">
-		<h3>Tell us a story...</h3>
-		<%= form_for(@post) do |f| %>
-			<%= render 'shared/error_messages', object: f.object %>
-			
-			<%= f.label :title, "What's the story called?", class: "strong" %>
-			<%= f.text_field(:title, value: "Example Title") %>
-
-			<br><br>
-			<%= f.label :content, "What happened?", class: "strong" %>
-			<%= f.text_area(:content, placeholder: "Listen to this crap...") %>
-
-			<%= f.submit "Post", class: "btn btn-large btn-danger" %>
-		<% end %>
-	</div>
-
-	<div class="span6">
-		<h3>Preview:</h3>
-			<div class="span6 offset3 previewoutline">
-				<h4><span id="title" class="wordwrap"></span></h4>
-				<span id="preview" class="previewcss"></span>
-				<p class="timestamp">
-					Story #<%= Post.count + 1 %> told 32 minutes ago by <%= current_user.name %>
-				</p>
-		</div>
-	</div>
 </div>
 
-
-<div class="row">
-	<div class="span6 offset3 signs">
-		<a name="signs"></a>
-		<h3 class="center">Signs of Dysfunction...</h3>
-		<h4>Bosses</h4>
-		<ol>
-			<li>Blah</li>
-		</ol>
-		<h4>Coworkers</h4>
-		<h4>Meetings</h4>
-		<h4>Processes</h4>
-		<h4>Customers</h4>
-		<h4>Miscellaneous Crap</h4>
-	</div>
-</div>
 
 <% if current_user.try(:admin?) %>
+
+
+
 	<h2>Ideas for content generation</h2>
-	<p>List out signs of a dysfunctional workplace</p>
 	<p>Number the list and when you add tags, people can tag a certain number to see more of that type. People could tag it like: #bosses3 where #3 under bosses could be like "Boss is the office bully"</p>
-	<p>May need to change the span if the Signs portion goes too wide</p>
 	<p>Need to figure out how to not let them post HTML -- Textile only</p>
 
 <%= RedCloth.new("test").to_html %>

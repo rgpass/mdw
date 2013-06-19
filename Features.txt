@@ -3,7 +3,7 @@ This file lists out the features that we need to add.
 1. Voting function
 Vote if funny/dysfunctional or stupid. Can have the totals show up on the user's profile.
 
-2. Post HTML formatting
+2. [X] Post HTML formatting
 The user can edit the HTML formatting in their post.
 More advanced: Format is automatically done.
 
@@ -17,14 +17,14 @@ More advanced: Format is automatically done.
 
 7. Translate function
 
-8. Domain-specific email (i.e. gerry@mydysfunctionalworkplace.com)
+8. [X] Domain-specific email (i.e. gerry@mydysfunctionalworkplace.com)
 
 9. Add an icon image and a logo
 --Temporary one done 6/13/13
 
 10. Submissions go through an 'approval' process first
 
-11. Have the logo say "My Dysfunctional Workplace" if the width is sufficient, if not it shrinks it to "MDW"
+11. [X] Have the logo say "My Dysfunctional Workplace" if the width is sufficient, if not it shrinks it to "MDW"
 --Not relevant
 
 12. Terms of Use that must be agreed to before allowing the user to sign up
@@ -42,16 +42,20 @@ More advanced: Format is automatically done.
 18. Includes Google Analytics
 
 19. Allow for anonymous posting
+--Change the model to make user_id not be a requirement, also need to somehow make it so that a post doesn't belong to a user
+--Change the controller so all users, whether signed in or not, can do new and create, but not edit/destroy
+--Change the view so that it says it was submitted by an anoymous user, or that it was submitted anonymously
+--Change the submit view so that if the user is not signed in, it gives a hero unit saying that they won't be able to edit/destroy and will not get credit
 
 20. Error messages on sign up screen are in correct order.
 
-21. Users can delete or edit their stories. Admins can edit stories.
+21. [X] Users can delete or edit their stories. Admins can edit stories.
 --Done 6/13/13
 --Can be found in the Posts controller and associated post pages
 
 22. Similar to how a double-click when creating a user will only process one, set it up so when submitting a story a double-click will only process one.
 
-23. Users can delete their profile and associated stories.
+23. [X] Users can delete their profile and associated stories.
 --Done on 6/7/13
 --Users cannot delete other users or other user's posts
 --Admins can delete other users but not themselves
@@ -60,18 +64,18 @@ More advanced: Format is automatically done.
 24. Users can edit their information inside their view profile page.
 --Check to see how Hartl's guide made it so you could submit a post inside your profile
 
-25. User profile pages have their username in the title.
+25. [X] User profile pages have their username in the title.
 --Done
 --Completed by providing the username for the page title
 
-26. Site dynamically changes based on the width of the user's device/window (i.e. different views for phone, tablet, laptop, or monitor).
+26. [X] Site dynamically changes based on the width of the user's device/window (i.e. different views for phone, tablet, laptop, or monitor).
 --Done when Bootstrap installed
 
 27. iPhone&iPad and/or Droid app
 
 28. More personality on the page. Instead of "Profile updated" for the success of a profile update, it could say something like "Profile now functional. Unlike your job."
 
-29. Cannot see other people's profiles unless you are that user or an admin. For example, if I'm user/2 and not an admin, I can't see user/4's profile.
+29. [X] Cannot see other people's profiles unless you are that user or an admin. For example, if I'm user/2 and not an admin, I can't see user/4's profile.
 --Done 6/13/13
 
 30. For all tests, write in where and how they were solved. Also explain what it's testing for. Write tests for current functionality.
@@ -88,13 +92,13 @@ More advanced: Format is automatically done.
 
 36. Get advertisements.
 
-37. Admin can delete posts
+37. [X] Admin can delete posts
 --Done 6/7/13
 --Links formatted so only admins and current_user can either delete a profile or posts
 
 38. Easy pop-up for users to sign up or sign in. See Bootstrap's modals: http://twitter.github.io/bootstrap/javascript.html#modals
 
-39. Fluid paginate boxes
+39. [X] Fluid paginate boxes
 --Done 6/10/13
 --Needed to wrap them in a special class
 
