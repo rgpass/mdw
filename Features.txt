@@ -107,6 +107,7 @@ More advanced: Format is automatically done.
 41. Can easily share stories via quick-share buttons for facebook, Twitter, and Tumblr
 
 42. Make the Titles require uniqueness, so that you can use friendly URLs. Check this article #4: http://lassebunk.dk/2011/03/09/rails-seo-pack/
+	--This adds strength to your SEO score. The more pages you have, the stronger. Unique titles that include SEO-applicable terms + Commenting = $$
 
 43. Set tab order on Edit, Sign in, and Sign up pages. Enter already goes to the Submit button.
 
