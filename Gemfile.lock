@@ -137,6 +137,7 @@ GEM
     showdown-rails (0.0.3)
       actionpack (>= 3.1)
       railties (>= 3.1)
+    social-share-button (0.1.4)
     sprockets (2.2.2)
       hike (~> 1.2)
       multi_json (~> 1.0)
@@ -178,6 +179,7 @@ DEPENDENCIES
   rspec-rails (= 2.11.0)
   sass-rails (= 3.2.5)
   showdown-rails
+  social-share-button
   sqlite3 (= 1.3.5)
   uglifier (= 1.2.3)
   will_paginate (= 3.0.3)

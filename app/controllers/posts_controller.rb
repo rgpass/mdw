@@ -11,6 +11,7 @@ class PostsController < ApplicationController
 	# correlates to the correct user.
 	before_filter :correct_user,   only: [:edit, :update, :destroy]
 	before_filter :story_owner,    only: [:edit, :update]
+	before_filter :admin_user,     only: [:show]
 
 	def index
 		# Index paginates posts so 7 per page
@@ -37,6 +38,10 @@ class PostsController < ApplicationController
 		else
 			render 'new'
 		end
+	end
+
+	def show
+		@post = Post.find(params[:id])
 	end
 
 	def edit
@@ -88,4 +93,8 @@ class PostsController < ApplicationController
 			@post = Post.find(params[:id])
 			redirect_to root_url unless (@post.user_id == current_user.id) || current_user.try(:admin?)
 		end
+
+		def admin_user
+      redirect_to(root_path) unless current_user.try(:admin?) || current_user?(@user)
+    end
 end

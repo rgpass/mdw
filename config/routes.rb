@@ -17,7 +17,7 @@ Mdw::Application.routes.draw do
 # Do not need :edit or :update because it will be
 # set up so once it's submitted, it's done. They
 # can delete it and re-type, but cannot edit.
-  resources :posts, only: [:index, :new, :create, :edit, :update, :destroy] do
+  resources :posts, only: [:index, :new, :create, :show, :edit, :update, :destroy] do
     member { post :vote }
   end
 

@@ -18,4 +18,5 @@
 //= require signup
 //= require preview
 //= require showdown
+//= require social-share-button
 //= require_tree .
