@@ -16,7 +16,7 @@
 	| <%= link_to 'Time to quit', vote_post_path(post, type: "up"), method: "post" %> 
 	(<% if post.reputation_for(:votes).to_i > 0 %>+<% end %><%= post.reputation_for(:votes).to_i %>)
 	<%= link_to "I'd trade jobs", vote_post_path(post, type: "down"), method: "post" %> 
-	| <div class="inlineblock">
+	<div class="inlineblock pull-right">
 		<%= social_share_button_tag(full_title(post.title), url: post_url(post.id)) %>
 	</div>
 </li>
