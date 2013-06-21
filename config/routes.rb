@@ -17,7 +17,9 @@ Mdw::Application.routes.draw do
 # Do not need :edit or :update because it will be
 # set up so once it's submitted, it's done. They
 # can delete it and re-type, but cannot edit.
-  resources :posts, only: [:index, :new, :create, :edit, :update, :destroy]
+  resources :posts, only: [:index, :new, :create, :edit, :update, :destroy] do
+    member { post :vote }
+  end
 
 # Static pages
   root to: 'posts#index'
@@ -32,6 +34,10 @@ Mdw::Application.routes.draw do
   # The via: :delete indicates it should be invoked
   # via a HTTP DELETE request.
   match '/signout', to: 'sessions#destroy', via: :delete
+
+# Post pages
+  match '/popular', to: 'posts#popular'
+  match '/lame',    to: 'posts#lame'
 
 
   # Routes Layout

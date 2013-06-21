@@ -29,6 +29,10 @@ gem 'RedCloth'
 # showdown allows for the viewing of textile text
 # in a HTML preview
 gem 'showdown-rails'
+# Reputation System allows for voting, for more info
+# see the RailsCast:
+# http://railscasts.com/episodes/364-active-record-reputation-system
+gem 'activerecord-reputation-system', require: 'reputation_system'
 gem 'jquery-rails', '2.0.2'
 gem 'coffee-rails', '3.2.2'
 

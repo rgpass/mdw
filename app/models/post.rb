@@ -19,5 +19,16 @@ class Post < ActiveRecord::Base
 
   # This code assigns the default order to be
   # descending. This is a bit of SQL code.
-  default_scope order: 'posts.created_at DESC'
+  # To put it in descending order, we use this, however
+  # this would not allow for alterations, so it wouldn't
+  # be able to display by most popular or least popular
+  # but had to change in index to @posts.desc
+  #default_scope order: 'posts.created_at DESC'
+  scope :desc, order("posts.created_at DESC")
+
+  # Comes from the Reputation System gem
+  # This is saying that the vote comes from the user
+  # and is aggregated by sum. For more options, check out
+  # the reputation system gem on GitHub
+  has_reputation :votes, source: :user, aggregated_by: :sum
 end

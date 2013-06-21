@@ -12,12 +12,12 @@
 			</h3>
 			<h3>Stats</h3>
 			<p>
-				<% if @user.posts.any? %>
 					<%= pluralize(@user.posts.count, 'story') %> submitted.
-				<% else %>
-					0 stories submitted.
-				<% end %>
 			</p>
+			<p>
+				<% if current_user.reputation_for(:votes).to_i > 0 %>+<% end %><%= pluralize(current_user.reputation_for(:votes).to_i, 'vote') %> for you to quit.
+			</p>
+			<p>
 			<p>
 				Created <%= time_ago_in_words(@user.created_at) %> ago.
 			</p>
@@ -30,7 +30,7 @@
 		<% if @user.posts.any? %>
 			<h3>Posts (<%= @user.posts.count %>)</h3>
 			<ol>
-				<%= render @posts %>
+				<%= render @posts.desc %>
 			</ol>
 			<div class="row-fluid">
 				<div class="span12 pagination-centered">

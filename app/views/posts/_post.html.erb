@@ -11,4 +11,7 @@
 																data: { confirm: "You sure?" },
 																title: post.content %>
 	<% end %>
+	| <%= link_to 'Time to quit', vote_post_path(post, type: "up"), method: "post" %> 
+	(<% if post.reputation_for(:votes).to_i > 0 %>+<% end %><%= post.reputation_for(:votes).to_i %>)
+	<%= link_to "I'd trade jobs", vote_post_path(post, type: "down"), method: "post" %>
 </li>

@@ -17,6 +17,14 @@ class PostsController < ApplicationController
 		@posts = Post.page(params[:page]).per_page(7)
 	end
 
+	def popular
+		@posts = Post.page(params[:page]).per_page(7).find_with_reputation(:votes, :all, order: "votes desc")
+	end
+
+	def lame
+		@posts = Post.page(params[:page]).per_page(7).find_with_reputation(:votes, :all, order: "votes asc")
+	end
+
 	def new
 		@post = current_user.posts.new
 	end
@@ -55,6 +63,17 @@ class PostsController < ApplicationController
 		else
 			flash[:error] = "Not possible."
 			redirect_to	root_url
+		end
+	end
+
+	def vote
+		if signed_in?
+			value = params[:type] == "up" ? 1 : -1
+			@post = Post.find(params[:id])
+			@post.add_or_update_evaluation(:votes, value, current_user)
+			redirect_to :back, notice: "Your vote actually counted for something!"
+		else
+			redirect_to :back, notice: "You must be signed in to vote."
 		end
 	end
 

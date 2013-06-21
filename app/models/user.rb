@@ -84,6 +84,9 @@ class User < ActiveRecord::Base
   validates :password, length: { minimum: 6 }
   validates :password_confirmation, presence: true
 
+  # Keeps track of how how many votes the user has received
+  has_reputation :votes, source: {reputation: :votes, of: :posts}, aggregated_by: :sum
+
   private 
 
     # Creates a secure token to verify that the user
