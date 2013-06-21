@@ -33,6 +33,8 @@ gem 'showdown-rails'
 # see the RailsCast:
 # http://railscasts.com/episodes/364-active-record-reputation-system
 gem 'activerecord-reputation-system', require: 'reputation_system'
+# Allows for social share buttons to be easily created
+# and maintained
 gem 'social-share-button'
 gem 'jquery-rails', '2.0.2'
 gem 'coffee-rails', '3.2.2'

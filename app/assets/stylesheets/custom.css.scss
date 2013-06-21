@@ -297,6 +297,7 @@ input {
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
   box-shadow: 1px 1px 10px #444;
+
   
 /*  width: 80%; */
   li {
@@ -342,6 +343,10 @@ aside {
 
 .inline {
   display: inline;
+}
+
+.inlineblock {
+  display: inline-block;
 }
 
 /* faq page */

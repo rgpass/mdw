@@ -11,7 +11,6 @@ class PostsController < ApplicationController
 	# correlates to the correct user.
 	before_filter :correct_user,   only: [:edit, :update, :destroy]
 	before_filter :story_owner,    only: [:edit, :update]
-	before_filter :admin_user,     only: [:show]
 
 	def index
 		# Index paginates posts so 7 per page
